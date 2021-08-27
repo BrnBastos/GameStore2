@@ -1,0 +1,67 @@
+﻿@model GameStore.Models.Cliente
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<form action="~/Cliente/listar" method="post">
+    <fieldset>
+
+        <legend> Cadastro do cliente </legend>
+
+    </fieldset>
+
+    <div>
+        <label for="ClientNome"> Nome </label>
+    </div>
+
+    <div>
+        <input type="text" value="@Model.ClientNome" name="ClientNome" />
+    </div>
+
+    <div>
+        <label for="ClientCPF">CPF</label>
+    </div>
+
+    <div>
+        <input type="text" value="@Model.ClientCPF" name="ClientCPF" />
+    </div>
+
+    <div>
+        <label for="ClientDTN">Data de nascimento</label>
+    </div>
+
+    <div>
+        <input type="text" value="@Model.ClientDTN" name="ClientDTN" />
+    </div>
+
+    <div>
+        <label for="ClientEmail">Email</label>
+    </div>
+
+    <div>
+        <input type="text" value="@Model.ClientEmail" name="ClientEmail" />
+    </div>
+
+    <div>
+        <label for="ClientCelular">Celular</label>
+    </div>
+
+    <div>
+        <input type="text" value="@Model.ClientCelular" name="ClientCelular" />
+    </div>
+
+    <div>
+        <label for="ClientEndereco">Endereço</label>
+    </div>
+
+    <div>
+        <input type="text" value="@Model.ClientEndereco" name="ClientEndereco" />
+    </div>
+
+    <div>
+        <br /> <input type="submit" value="Enviar" />
+    </div>
+
+</form>
+

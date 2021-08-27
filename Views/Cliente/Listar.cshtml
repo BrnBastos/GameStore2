@@ -1,0 +1,55 @@
+﻿@model GameStore.Models.Cliente
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+<div>
+    <b> Nome do Cliente </b>
+</div>
+
+<div>
+    @Model.ClientNome
+</div>
+
+<div>
+    <b> CPF </b>
+</div>
+<div>
+    @Model.ClientCPF
+</div>
+
+<div>
+    <b> Data de nascimento </b>
+</div>
+
+<div>
+    @Model.ClientDTN
+</div>
+
+<div>
+    <b> Email </b>
+</div>
+
+<div>
+    @Model.ClientEmail
+</div>
+
+<div>
+    <b> Celular </b>
+</div>
+
+<div>
+    @Model.ClientCelular
+</div>
+
+<div>
+    <b> Endereço </b>
+</div>
+
+<div>
+    @Model.ClientEndereco
+</div>
+<br />
+@Html.ActionLink("Voltar", "index", "Home")

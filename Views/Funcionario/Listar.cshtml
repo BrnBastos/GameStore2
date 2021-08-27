@@ -1,0 +1,84 @@
+﻿@model GameStore.Models.Funcionario
+@{
+    ViewBag.Title = "Listar";
+}
+
+
+<div>
+    <b> Código do funcionário </b>
+</div>
+
+<div>
+    @Model.FuncCod
+</div>
+
+<div>
+    <b> Nome do funcionário </b>
+</div>
+<div>
+    @Model.FuncNome
+</div>
+
+<div>
+    <b> CPF </b>
+</div>
+
+<div>
+    @Model.FuncCPF
+</div>
+
+<div>
+    <b> RG </b>
+</div>
+
+<div>
+    @Model.FuncRG
+</div>
+
+<div>
+    <b> Data de nascimento </b>
+</div>
+
+<div>
+    @Model.FuncDTN
+</div>
+
+<div>
+    <b> Endereço </b>
+</div>
+
+<div>
+    @Model.FuncEndereco
+</div>
+
+<div>
+    <b> Celular </b>
+</div>
+
+<div>
+    @Model.FuncCelular
+</div>
+
+<div>
+    <b> Email </b>
+</div>
+
+<div>
+    @Model.FuncEmail
+</div>
+
+<div>
+    <b> Cargo </b>
+</div>
+
+<div>
+    @Model.FuncCargo
+</div>
+
+<br />
+@Html.ActionLink("Voltar", "index", "Home")
+
+
+
+
+
