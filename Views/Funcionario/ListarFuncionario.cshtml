@@ -1,0 +1,98 @@
+﻿@model IEnumerable<GameStore.Models.Funcionario>
+@{
+    ViewBag.Title = "ListarFuncionario";
+}
+
+
+<h2>Listar Funcionario</h2>
+<p>@Html.ActionLink("Cadastrar Funcionario", "Funcionario")</p>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodFunc)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FuncNome)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FuncCPF)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FuncRG)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FuncDtNasc)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FuncEndereco)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FuncCel)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FuncEmail)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FuncCargo)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.CodFunc)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.FuncNome)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.FuncCPF)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.FuncRG)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.FuncDtNasc)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.FuncEndereco)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.FuncCel)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.FuncEmail)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.FuncCargo)
+    </td>
+    <td>
+        @Html.ActionLink("Alterar", "AltFunc", null, new { CodFunc = item.CodFunc }, new { @class = "btn btn-primary btn-xs" })
+        @Html.ActionLink("Deletar", "DelFunc", null, new { CodFunc = item.CodFunc }, new { @class = "btn btn-danger btn-xs" })
+    </td>
+</tr>
+    }
+
+</table>
+
+
+
+
+

@@ -4,35 +4,42 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GameStore.Models;
+using GameStore.Repositorio;
 namespace GameStore.Controllers
 {
     public class FuncionarioController : Controller
     {
         // GET: Funcionario
-        public ActionResult Index()
+        public ActionResult Funcionario()
         {
-            Funcionario func = new Funcionario()
-            {
-                FuncCod = 1,
-                FuncNome = "Guilherme Braga",
-                FuncCPF = "123.456.789-10",
-                FuncRG = "12 345 678-9",
-                FuncDTN = "00/00/0000",
-                FuncEndereco = "Rua do carmo 778",
-                FuncCelular = "11 91234-5678",
-                FuncEmail = "guilherme@email.com",
-                FuncCargo = "estoquista" 
-            };
-
-            return View(func);
-
-        }
-        [HttpPost]
-        public ActionResult Listar(Funcionario funcionario)
-        {
-        
+            var funcionario = new Funcionario();
             return View(funcionario);
+        }
+        Acoes ac = new Acoes();
 
+        [HttpPost]
+        public ActionResult Funcionario(Funcionario funcionario)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    ac.CadastrarFunc(funcionario);
+                    return RedirectToAction("ListarFuncionario");
+                }
+                return View(funcionario);
+            }
+            catch
+            {
+                return RedirectToAction("Funcionario");
+            }
+        }
+
+        public ActionResult ListarFuncionario()
+        {
+            var ExibirFunc = new Acoes();
+            var TodosFuncionarios = ExibirFunc.ListarFuncionario();
+            return View(TodosFuncionarios);
         }
     }
 

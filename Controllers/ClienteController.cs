@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using GameStore.Models;
+using GameStore.Repositorio;
 using System.Web.Mvc;
 
 namespace GameStore.Controllers
@@ -10,26 +11,38 @@ namespace GameStore.Controllers
     public class ClienteController : Controller
     {
         // GET: Client
-        public ActionResult Index()
+        public ActionResult Cliente()
         {
-            Cliente client = new Cliente()
-            {
-                ClientNome = "Armando Silva",
-                ClientCPF = "123.456.789-10",
-                ClientDTN = "19/11/1998",
-                ClientEmail = "armando@email.com",
-                ClientCelular = "11 91234-5678",
-                ClientEndereco = "rua astolfo silva 430",
-            };
-
-            return View(client);
+            //var cliente = new Cliente();
+            return View();
         }
+        Acoes ac = new Acoes();
+
+
         [HttpPost]
-        public ActionResult Listar(Cliente client)
+        public ActionResult Cliente(Cliente cliente)
         {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    ac.CadastrarCliente(cliente);
+                    return RedirectToAction("ListarCliente");
+                }
+                return View(cliente);
+            }
+            catch
+            {
+                return RedirectToAction("Cliente");
+            }
 
-            return View(client);
+        }
 
+        public ActionResult ListarCliente()
+        {
+            var ExibirCliente = new Acoes();
+            var TodosCli = ExibirCliente.ListarCliente();
+            return View(TodosCli);
         }
     }
     

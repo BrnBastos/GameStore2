@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using GameStore.Models;
+using GameStore.Repositorio;
 using System.Web.Mvc;
 
 namespace GameStore.Controllers
@@ -10,30 +11,36 @@ namespace GameStore.Controllers
     public class JogoController : Controller
     {
         // GET: Jogo
-        public ActionResult Index()
+        public ActionResult Jogo()
         {
-            Jogo jog = new Jogo()
-            {
-                JogCod = 154,
-                JogNome = "God of War",
-                JogVersao = "Deluxe",
-                JogDev = "sonyPictures",
-                JogGen = "quarta geração",
-                JogFE = "14 anos",
-                JogPlat = "playstation 4 e 5",
-                JogAno = 2017,
-                JogSinopse = "Um semi deus grego vai para o mundo nordico fugindo de seu passado, e é lá onde ele se casa e tem um filho, porém os deuses daquele mundo não ficam tão felizes assim com sua presença"
-            };
-
-            return View(jog);
-
+            var jogo = new Jogo();
+            return View(jogo);
         }
+        Acoes ac = new Acoes();
+
         [HttpPost]
-        public ActionResult Listar(Jogo jog)
+        public ActionResult Jogo(Jogo jogo)
         {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    ac.CadastrarJogo(jogo);
+                    return RedirectToAction("ListarJogo");
+                }
+                return View(jogo);
+            }
+            catch
+            {
+                return RedirectToAction("Jogo");
+            }
+        }
 
-            return View(jog);
-
+        public ActionResult ListarJogo()
+        {
+            var ExibirJogo = new Acoes();
+            var TodosJogo = ExibirJogo.ListarJogo();
+            return View(TodosJogo);
         }
     }
 

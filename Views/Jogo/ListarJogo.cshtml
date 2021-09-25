@@ -1,0 +1,92 @@
+﻿@model IEnumerable<GameStore.Models.Jogo>
+@{
+    ViewBag.Title = "ListarJogo";
+}
+
+
+<p>@Html.ActionLink("Cadastrar Jogo", "Jogo")</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodJogo)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.versao)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.desenvolvedor)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.genero)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.faixaetaria)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.plataforma)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.dtlanc)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.desc)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.CodJogo)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Nome)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.versao)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.desenvolvedor)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.genero)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.faixaetaria)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.plataforma)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.dtlanc)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.desc)
+    </td>
+
+    <td>
+        @Html.ActionLink("Alterar", "AltJogo", null, new { CodJogo = item.CodJogo }, new { @class = "btn btn-primary btn-xs" })
+        @Html.ActionLink("Deletar", "DelJogo", null, new { CodJogo = item.CodJogo }, new { @class = "btn btn-danger btn-xs" })
+    </td>
+</tr>
+    }
+
+</table>
